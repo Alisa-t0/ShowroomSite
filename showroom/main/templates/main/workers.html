@@ -3,5 +3,16 @@
 
 {% block content %}
 <h2>Наші співробітники</h2>
-
+<div class="cards">
+    {% for worker in workers %}
+        <div class="card">
+            <h3>{{ worker.full_name }}</h3>
+            <p>Посада: {{ worker.position }}</p>
+            <p>Телефон: {{ worker.phone }}</p>
+            <p>Email: {{ worker.email }}</p>
+        </div>
+    {% empty %}
+        <p>Немає даних про співробітників.</p>
+    {% endfor %}
+</div>
 {% endblock %}

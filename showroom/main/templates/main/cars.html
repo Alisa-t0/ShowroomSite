@@ -3,5 +3,15 @@
 
 {% block content %}
 <h2>Каталог автомобілів</h2>
-
+<div class="cards">
+    {% for car in cars %}
+        <div class="card">
+            <h3>{{ car.producer_name}} {{ car.model }}</h3>
+            <p>Рік: {{ car.year_production }}</p>
+            <p>Ціна: {{ car.potential_selling_price }} $</p>
+        </div>
+    {% empty %}
+        <p>Немає доступних автомобілів.</p>
+    {% endfor %}
+</div>
 {% endblock %}

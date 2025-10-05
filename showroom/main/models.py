@@ -8,18 +8,25 @@ class Worker(models.Model):
     email = models.EmailField()
     is_active = models.BooleanField(default=True)
 
+    def __str__(self):
+        return self.full_name
+
 class Car(models.Model):
     producer_name = models.CharField(max_length=100)
     year_production = models.IntegerField()
     model = models.CharField(max_length=100)
-    cost = models.DecimalField(max_digits=10, decimal_places=2)
-    potential_selling_price = models.DecimalField(max_digits=10, decimal_places=2)
+    cost = models.IntegerField()
+    potential_selling_price = models.IntegerField()
     is_available = models.BooleanField(default=True)
 
+    def __str__(self):
+        return f'{self.producer_name} {self.model}'
+
 class Sale(models.Model):
-    employee = models.ForeignKey(Worker, on_delete=models.PROTECT)
+    worker = models.ForeignKey(Worker, on_delete=models.PROTECT)
     car = models.ForeignKey(Car, on_delete=models.PROTECT)
     sale_date = models.DateField()
-    selling_price = models.DecimalField(max_digits=10, decimal_places=2)
+    selling_price = models.IntegerField()
 
-
+    def __str__(self):
+        return f'Продаж: {self.car.producer_name} {self.car.model} з {self.worker.full_name}'
