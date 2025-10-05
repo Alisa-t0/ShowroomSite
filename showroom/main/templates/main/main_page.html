@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block title %}Головна{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-text">
+        <h1>Ласкаво просимо до Auto Dealership!</h1>
+        <p>Ми пропонуємо найкращі автомобілі та сервіс високого рівня.</p>
+        <a href="{% url 'cars_page' %}" class="btn">Переглянути каталог</a>
+    </div>
+    <div class="hero-image">
+        <img src="{% static 'main/img/main_page.jpg' %}" alt="Автомобіль">
+    </div>
+</section>
+
+
+<section class="about">
+    <h2>Про наш автосалон</h2>
+    <div class="about-content">
+        <div class="about-text">
+            <p>AutoShowroom — це сучасний автосалон, який пропонує широкий вибір автомобілів від відомих виробників. Ми піклуємося про комфорт наших клієнтів та надаємо професійний сервіс на всіх етапах покупки.</p>
+            <br>
+            <p>Наша місія — творити унікальний досвід покупки автомобіля: від вибору моделі до отримання ключів у руки. Ми прагнемо робити процес покупки простим, зручним та приємним для кожного клієнта.</p>
+            <br>
+            <br>
+        </div>
+
+        <div class="about-image">
+            <img src="{% static 'main/img/showroom_interior.jpg' %}" alt="Інтер’єр автосалону">
+        </div>
+    </div>
+</section>
+
+<section class="advantages">
+    <h2>Наші переваги</h2>
+    <div class="cards">
+        <div class="card">
+            <img src="{% static 'main/img/advantage1.jpg' %}" alt="Великий вибір">
+            <h3>Великий вибір авто</h3>
+            <p>У нас представлено сотні моделей різних виробників, щоб ви могли обрати саме те, що вам підходить.</p>
+        </div>
+        <div class="card">
+            <img src="{% static 'main/img/advantage2.jpg' %}" alt="Якісний сервіс">
+            <h3>Якісний сервіс</h3>
+            <p>Професійні менеджери допоможуть з усіма питаннями покупки, кредитування та обслуговування автомобіля.</p>
+        </div>
+        <div class="card">
+            <img src="{% static 'main/img/advantage3.jpg' %}" alt="Гарантія та безпека">
+            <h3>Гарантія та безпека</h3>
+            <p>Ми гарантуємо якість кожного автомобіля та забезпечуємо надійність угоди.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

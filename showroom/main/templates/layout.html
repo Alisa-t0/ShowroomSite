@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Автосалон{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}?v1">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="{% url 'main_page' %}" class="logo">
+                <img src="{% static 'main/img/logo.png' %}" alt="Logo" class="logo-img">
+
+            </a>
+            <ul class="nav-links">
+                <li><a href="{% url 'main_page' %}">Головна</a></li>
+                <li><a href="{% url 'cars_page' %}">Автомобілі</a></li>
+                <li><a href="{% url 'workers_page' %}">Співробітники</a></li>
+                <li><a href="{% url 'contacts_page' %}">Контакти</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="content">
+        {% block content %}{% endblock %}
+    </main>
+
+
+</body>
+</html>
