@@ -1,9 +1,9 @@
 {% extends 'layout_m.html' %}
 
-{% block title %}Список працівників{% endblock %}
+{% block title %}Список машин{% endblock %}
 
 {% block content %}
-    <h2 style="text-align: center; margin-bottom: 30px;">Список працівників</h2>
+    <h2 style="text-align: center; margin-bottom: 30px;">Список машин</h2>
     <form method="get">
         {% csrf_token %}
         <table>
@@ -28,6 +28,8 @@
             </tr>
             {% endfor %}
         </table>
+      <br>
+      <a href="{% url 'create_car' %}">➕ Додати нову машину</a>
     </form>
 
 {% endblock %}

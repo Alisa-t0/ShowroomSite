@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from main.models import Worker, Car, Sale
+from .forms import WorkerForm, CarForm, SaleForm
 # Create your views here.
 def show_moderator_main_page(request):
     return render(request, 'moderator/moderator_main_page.html')
@@ -15,3 +16,38 @@ def show_cars_list(request):
 def show_sales_list(request):
     all_sales = Sale.objects.all()
     return render(request, 'moderator/sales/sales_list.html', {'all_sales': all_sales})
+
+def create_object(request, object_form, template_name, redirect_url):
+    if request.method == 'POST':
+        form = object_form(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect(redirect_url)
+    else:
+        form = object_form()
+    return render(request, template_name, {'form': form})
+
+def create_worker(request):
+    return create_object(request,
+        object_form=WorkerForm,
+        template_name='moderator/workers/create.html',
+        redirect_url='workers_list'
+    )
+
+
+def create_car(request):
+    return create_object(
+        request,
+        object_form=CarForm,
+        template_name='moderator/cars/create.html',
+        redirect_url='cars_list'
+    )
+
+
+def create_sale(request):
+    return create_object(
+        request,
+        object_form=SaleForm,
+        template_name='moderator/sales/create.html',
+        redirect_url='sales_list'
+    )
