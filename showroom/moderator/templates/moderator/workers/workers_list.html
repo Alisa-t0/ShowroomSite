@@ -1,0 +1,31 @@
+{% extends 'layout_m.html' %}
+
+{% block title %}Список працівників{% endblock %}
+
+{% block content %}
+    <h2 style="text-align: center; margin-bottom: 30px;">Список працівників</h2>
+    <form method="get">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>ПІБ</th>
+                <th>Посада</th>
+                <th>Телефон</th>
+                <th>Email</th>
+                <th>Активний</th>
+            </tr>
+            {% for worker in all_workers %}
+            <tr>
+                <td>{{ worker.id }}</td>
+                <td>{{ worker.full_name }}</td>
+                <td>{{ worker.position }}</td>
+                <td>{{ worker.phone }}</td>
+                <td>{{ worker.email }}</td>
+                <td>{% if worker.is_active %}✅{% else %}❌{% endif %}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </form>
+
+{% endblock %}

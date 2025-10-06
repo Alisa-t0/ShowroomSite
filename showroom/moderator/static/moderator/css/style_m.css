@@ -1,0 +1,300 @@
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: #f4f6f8;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #2c3e50;
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav a {
+    color: #ecf0f1;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #f39c12;
+    text-decoration: underline;
+}
+
+.container {
+    background: white;
+    max-width: 1150px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+table {
+    width: 100%;
+    margin: 0 auto;   /* по центру в контейнері */
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+}
+th input {
+    vertical-align: middle;
+}
+
+th {
+    background: #2c3e50;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+a, button {
+    display: inline-block;
+    background: #2c3e50;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+a:hover, button:hover {
+    background: #f39c12;
+    cursor: pointer;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input, select, textarea {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #2c3e50;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 12px 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #0077cc;
+    box-shadow: 0 0 8px rgba(0,119,204,0.2);
+    outline: none;
+}
+
+button {
+    background-color: #0077cc;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+body.add-employee-page .container {
+    max-width: 600px;
+    padding: 40px;
+    font-size: 16px;
+}
+
+
+
+body.add-employee-page .checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 8 px;
+}
+
+body.add-employee-page .checkbox-group input[type="checkbox"] {
+    width: 22px;
+    height: 22px;
+}
+
+body.add-employee-page button {
+    display: block;
+    margin: 20px auto;
+    padding: 14px 28px;
+    font-size: 17px;
+}
+
+
+.worker-card h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 22px;
+    color: #2c3e50;
+}
+
+.worker-info p {
+    font-size: 16px;
+    margin: 10px 0;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 6px;
+}
+
+.worker-info strong {
+    color: #2c3e50;
+    display: inline-block;
+    width: 150px;
+}
+
+.worker-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.worker-actions .btn {
+    background: #0077cc;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.worker-actions .btn:hover {
+    background: #005fa3;
+}
+
+.worker-actions .btn-back {
+    background: #777;
+}
+
+.worker-actions .btn-back:hover {
+    background: #555;
+}
+
+body.worker-page .container {
+    max-width: 600px;
+    padding: 40px;
+    font-size: 16px;
+}
+
+a.btn.btn-delete {
+    background-color: #e74c3c;
+    color: white;
+}
+
+a.btn.btn-delete:hover {
+    background-color: #c0392b;
+}
+
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-container {
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.modal-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.modal-actions .btn {
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.modal-actions .btn-back {
+    background-color: #777;
+    color: white;
+}
+
+.modal-actions .btn-back:hover {
+    background-color: #555;
+}
+
+.modal-actions .btn-delete {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.modal-actions .btn-delete:hover {
+    background-color: #c0392b;
+}

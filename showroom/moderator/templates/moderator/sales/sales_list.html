@@ -1,0 +1,28 @@
+{% extends 'layout_m.html' %}
+
+{% block title %}Список працівників{% endblock %}
+
+{% block content %}
+    <h2 style="text-align: center; margin-bottom: 30px;">Список працівників</h2>
+    <form method="get">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Робітник</th>
+                <th>Машина</th>
+                <th>Дата продажу</th>
+                <th>Ціна продажу</th>
+            </tr>
+            {% for sale in all_sales %}
+            <tr>
+                <td>{{ sale.id }}</td>
+                <td>{{ sale.worker.full_name }}</td>
+                <td>{{ sale.car.producer_name }} {{ sale.car.model }}</td>
+                <td>{{ sale.sale_date }}</td>
+                <td>{{ sale.selling_price }} $</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </form>
+{% endblock %}

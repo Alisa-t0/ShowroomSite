@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Moderator Panel{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'moderator/css/style_m.css' %}?{{ timestamp }}?">
+</head>
+<body>
+    <header>
+        <h1>Панель модератора</h1>
+        <nav>
+            <a href="{% url 'moderator_main_page' %}">Головна</a>
+            <a href="{% url 'workers_list' %}">Співробітники</a>
+            <a href="{% url 'cars_list' %}">Автомобілі</a>
+            <a href="{% url 'sales_list' %}">Продажі</a>
+            <a href="#">Звіти</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>
