@@ -17,7 +17,7 @@ def show_sales_list(request):
     all_sales = Sale.objects.all()
     return render(request, 'moderator/sales/sales_list.html', {'all_sales': all_sales})
 
-def create_object(request, object_form, template_name, redirect_url):
+def create_object(request, object_form, object_name, redirect_url):
     if request.method == 'POST':
         form = object_form(request.POST, request.FILES)
         if form.is_valid():
@@ -25,12 +25,12 @@ def create_object(request, object_form, template_name, redirect_url):
             return redirect(redirect_url)
     else:
         form = object_form()
-    return render(request, template_name, {'form': form})
+    return render(request, 'moderator/create_object.html', {'form': form, 'object_name': object_name})
 
 def create_worker(request):
     return create_object(request,
         object_form=WorkerForm,
-        template_name='moderator/workers/create.html',
+        object_name='працівника',
         redirect_url='workers_list'
     )
 
@@ -39,7 +39,7 @@ def create_car(request):
     return create_object(
         request,
         object_form=CarForm,
-        template_name='moderator/cars/create.html',
+        object_name='машину',
         redirect_url='cars_list'
     )
 
@@ -48,6 +48,6 @@ def create_sale(request):
     return create_object(
         request,
         object_form=SaleForm,
-        template_name='moderator/sales/create.html',
+        object_name='продаж',
         redirect_url='sales_list'
     )
