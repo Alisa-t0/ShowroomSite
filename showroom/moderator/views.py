@@ -1,9 +1,25 @@
 from django.shortcuts import render, redirect
+from django.views.generic import DetailView
 from main.models import Worker, Car, Sale
 from .forms import WorkerForm, CarForm, SaleForm
 # Create your views here.
 def show_moderator_main_page(request):
     return render(request, 'moderator/moderator_main_page.html')
+
+class CarDetailView(DetailView):
+    model = Car
+    template_name = 'moderator/cars/detail_view.html'
+    context_object_name = 'car'
+
+class WorkerDetailView(DetailView):
+    model = Worker
+    template_name = 'moderator/workers/detail_view.html'
+    context_object_name = 'worker'
+
+class SaleDetailView(DetailView):
+    model = Sale
+    template_name = 'moderator/sales/detail_view.html'
+    context_object_name = 'sale'
 
 def show_workers_list(request):
     all_workers = Worker.objects.all()

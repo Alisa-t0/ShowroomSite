@@ -1,0 +1,8 @@
+{% extends '../detail_view_base.html' %}
+{% block inner %}
+    <p><strong>ID:</strong> {{ sale.id }}</p>
+    <p><strong>Працівник:</strong> {{ sale.worker }}</p>
+    <p><strong>Машина:</strong> {{ sale.car }}</p>
+    <p><strong>Дата продажу:</strong> {{ sale.sale_date }}</p>
+    <p><strong>Реальна ціна продажу:</strong> {{ sale.selling_price }} $</p>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends '../detail_view_base.html' %}
+{% block inner %}
+    <p><strong>ID:</strong> {{ worker.id }}</p>
+    <p><strong>ПІБ:</strong> {{ worker.full_name }}</p>
+    <p><strong>Посада:</strong> {{ worker.position }}</p>
+    <p><strong>Телефон:</strong> {{ worker.phone }}</p>
+    <p><strong>Email:</strong> {{ worker.email }}</p>
+    <p><strong>Працює зараз:</strong> {% if worker.is_active %}Так{% else %}Ні{% endif %}</p>
+{% endblock %}

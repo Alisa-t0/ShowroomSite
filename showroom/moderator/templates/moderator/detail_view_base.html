@@ -1,0 +1,15 @@
+{% extends 'layout_m.html' %}
+
+{% block title %}Додаткова інформація{% endblock %}
+
+{% block content %}
+<body class="worker-page">
+<div class="worker-card">
+    <h2>Деталі</h2>
+
+    <div class="worker-info">
+        {% block inner %}
+        {% endblock %}
+    </div>
+</div>
+{% endblock %}

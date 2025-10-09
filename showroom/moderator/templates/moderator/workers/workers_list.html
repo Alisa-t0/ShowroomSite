@@ -14,6 +14,7 @@
                 <th>Телефон</th>
                 <th>Email</th>
                 <th>Активний</th>
+                <th></th>
             </tr>
             {% for worker in all_workers %}
             <tr>
@@ -23,6 +24,7 @@
                 <td>{{ worker.phone }}</td>
                 <td>{{ worker.email }}</td>
                 <td>{% if worker.is_active %}✅{% else %}❌{% endif %}</td>
+                <td><a href="{% url 'worker_details' worker.id%}">Детальніше</a></td>
             </tr>
             {% endfor %}
         </table>

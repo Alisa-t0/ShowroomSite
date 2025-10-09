@@ -1,0 +1,10 @@
+{% extends '../detail_view_base.html' %}
+{% block inner %}
+    <p><strong>ID:</strong> {{ car.id }}</p>
+    <p><strong>Назва виробника:</strong> {{ car.producer_name }}</p>
+    <p><strong>Рік випуску:</strong> {{ car.year_production }}</p>
+    <p><strong>Модель:</strong> {{ car.model }}</p>
+    <p><strong>Собівартість:</strong> {{ car.cost }} $</p>
+    <p><strong>Потенційна ціна продажу:</strong> {{ car.potential_selling_price }} $</p>
+    <p><strong>Наявна в салоні:</strong> {% if car.is_available %}Так{% else %}Ні{% endif %}</p>
+{% endblock %}

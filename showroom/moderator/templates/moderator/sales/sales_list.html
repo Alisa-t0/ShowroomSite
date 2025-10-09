@@ -13,6 +13,7 @@
                 <th>Машина</th>
                 <th>Дата продажу</th>
                 <th>Ціна продажу</th>
+                <th></th>
             </tr>
             {% for sale in all_sales %}
             <tr>
@@ -21,6 +22,7 @@
                 <td>{{ sale.car.producer_name }} {{ sale.car.model }}</td>
                 <td>{{ sale.sale_date }}</td>
                 <td>{{ sale.selling_price }} $</td>
+                <td><a href="{% url 'sale_details' sale.id%}">Детальніше</a></td>
             </tr>
             {% endfor %}
         </table>

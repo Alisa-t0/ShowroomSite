@@ -15,6 +15,7 @@
                 <th>Собівартість</th>
                 <th>Потенційна ціна продажу</th>
                 <th>Наявність</th>
+                <th></th>
             </tr>
             {% for car in all_cars %}
             <tr>
@@ -25,6 +26,7 @@
                 <td>{{ car.cost }} $</td>
                 <td>{{ car.potential_selling_price }} $</td>
                 <td>{% if car.is_available %}✅{% else %}❌{% endif %}</td>
+                <td><a href="{% url 'car_details' car.id%}">Детальніше</a></td>
             </tr>
             {% endfor %}
         </table>
