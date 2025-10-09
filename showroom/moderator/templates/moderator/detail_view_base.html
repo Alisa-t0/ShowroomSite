@@ -11,5 +11,10 @@
         {% block inner %}
         {% endblock %}
     </div>
+     <div class="worker-actions">
+        <a href="{% block l %}{% endblock %}" class="btn">Оновити</a>
+        <a href="{% block d %}{% endblock %}" class="btn btn-delete">Видалити</a>
+        <a href="." class="btn btn-back">Назад</a>
+    </div>
 </div>
 {% endblock %}

@@ -1,6 +1,6 @@
 {% extends 'layout_m.html' %}
 
-{% block title %}Додати {{ object_name }}{% endblock %}
+{% block title %}{% block t %}Додати {% endblock %}{{ object_name }}{% endblock %}
 
 {% block content %}
 <body class="add-employee-page">

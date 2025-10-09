@@ -10,6 +10,13 @@ urlpatterns = [
     path('cars/create', views.create_car, name='create_car'),
     path('sales/create', views.create_sale, name='create_sale'),
     path('workers/<int:pk>', views.WorkerDetailView.as_view(), name='worker_details'),
+    path('workers/<int:pk>/update', views.WorkerUpdateView.as_view(), name='worker_update'),
+    path('workers/<int:pk>/delete', views.WorkerDeleteView.as_view(), name='worker_delete'),
     path('cars/<int:pk>', views.CarDetailView.as_view(), name='car_details'),
+    path('cars/<int:pk>/update', views.CarUpdateView.as_view(), name='car_update'),
+    path('cars/<int:pk>/delete', views.CarDeleteView.as_view(), name='car_delete'),
     path('sales/<int:pk>', views.SaleDetailView.as_view(), name='sale_details'),
+    path('sales/<int:pk>/update', views.SaleUpdateView.as_view(), name='sale_update'),
+    path('sales/<int:pk>/delete', views.SaleDeleteView.as_view(), name='sale_delete'),
+
 ]

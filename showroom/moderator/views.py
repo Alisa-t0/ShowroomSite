@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import DetailView
+from django.views.generic import DetailView, UpdateView, DeleteView
 from main.models import Worker, Car, Sale
 from .forms import WorkerForm, CarForm, SaleForm
 # Create your views here.
@@ -20,6 +20,42 @@ class SaleDetailView(DetailView):
     model = Sale
     template_name = 'moderator/sales/detail_view.html'
     context_object_name = 'sale'
+
+class CarUpdateView(UpdateView):
+    model = Car
+    template_name = 'moderator/update.html'
+    context_object_name = 'car'
+    form_class = CarForm
+
+class WorkerUpdateView(UpdateView):
+    model = Worker
+    template_name = 'moderator/update.html'
+    context_object_name = 'worker'
+    form_class = WorkerForm
+
+class SaleUpdateView(UpdateView):
+    model = Sale
+    template_name = 'moderator/update.html'
+    context_object_name = 'sale'
+    form_class = SaleForm
+
+class CarDeleteView(DeleteView):
+    model = Car
+    template_name = 'moderator/delete.html'
+    context_object_name = 'car'
+    success_url = '..'
+
+class WorkerDeleteView(DeleteView):
+    model = Worker
+    template_name = 'moderator/delete.html'
+    context_object_name = 'worker'
+    success_url = '..'
+
+class SaleDeleteView(DeleteView):
+    model = Sale
+    template_name = 'moderator/delete.html'
+    context_object_name = 'sale'
+    success_url = '..'
 
 def show_workers_list(request):
     all_workers = Worker.objects.all()

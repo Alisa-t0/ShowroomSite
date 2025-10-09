@@ -12,7 +12,7 @@ class Worker(models.Model):
         return self.full_name
 
     def get_absolute_url(self):
-        return f'/moderator/workers/{self.pk}/'
+        return f'/moderator/workers/{self.pk}'
 
 class Car(models.Model):
     producer_name = models.CharField(max_length=100)
@@ -26,7 +26,7 @@ class Car(models.Model):
         return f'{self.producer_name} {self.model}'
 
     def get_absolute_url(self):
-        return f'/moderator/cars/{self.pk}/'
+        return f'/moderator/cars/{self.pk}'
 
 class Sale(models.Model):
     worker = models.ForeignKey(Worker, on_delete=models.PROTECT)
@@ -38,4 +38,4 @@ class Sale(models.Model):
         return f'Продаж: {self.car.producer_name} {self.car.model} з {self.worker.full_name}'
 
     def get_absolute_url(self):
-        return f'/moderator/sales/{self.pk}/'
+        return f'/moderator/sales/{self.pk}'

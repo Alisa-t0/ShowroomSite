@@ -1,0 +1,19 @@
+{% extends 'layout_m.html' %}
+
+{% block title %}Видалення {% endblock %}
+
+{% block content %}
+<div class="modal-overlay">
+    <div class="modal-container">
+        <h2>Ви впевнені, що хочете видалити?</h2>
+
+        <div class="modal-actions">
+            <form method="post" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-delete">Так, видалити</button>
+            </form>
+            <a href="." class="btn btn-back">Ні, скасувати</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

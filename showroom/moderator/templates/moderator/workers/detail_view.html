@@ -6,4 +6,14 @@
     <p><strong>Телефон:</strong> {{ worker.phone }}</p>
     <p><strong>Email:</strong> {{ worker.email }}</p>
     <p><strong>Працює зараз:</strong> {% if worker.is_active %}Так{% else %}Ні{% endif %}</p>
+
+
+{% endblock %}
+
+{% block l %}
+{% url 'worker_update' worker.id %}
+{% endblock %}
+
+{% block d %}
+{% url 'worker_delete' worker.id %}
 {% endblock %}

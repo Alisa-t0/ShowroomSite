@@ -8,3 +8,12 @@
     <p><strong>Потенційна ціна продажу:</strong> {{ car.potential_selling_price }} $</p>
     <p><strong>Наявна в салоні:</strong> {% if car.is_available %}Так{% else %}Ні{% endif %}</p>
 {% endblock %}
+
+{% block l %}
+{% url 'car_update' car.id %}
+{% endblock %}
+
+
+{% block d %}
+{% url 'car_delete' car.id %}
+{% endblock %}

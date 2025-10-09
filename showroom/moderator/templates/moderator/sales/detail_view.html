@@ -6,3 +6,11 @@
     <p><strong>Дата продажу:</strong> {{ sale.sale_date }}</p>
     <p><strong>Реальна ціна продажу:</strong> {{ sale.selling_price }} $</p>
 {% endblock %}
+
+{% block l %}
+{% url 'sale_update' sale.id %}
+{% endblock %}
+
+{% block d %}
+{% url 'sale_delete' sale.id %}
+{% endblock %}
