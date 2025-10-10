@@ -1,7 +1,11 @@
+from dataclasses import fields
+
 from django.shortcuts import render, redirect
 from django.views.generic import DetailView, UpdateView, DeleteView
 from main.models import Worker, Car, Sale
 from .forms import WorkerForm, CarForm, SaleForm
+from datetime import datetime
+from . import reports
 # Create your views here.
 def show_moderator_main_page(request):
     return render(request, 'moderator/moderator_main_page.html')
@@ -103,3 +107,65 @@ def create_sale(request):
         object_name='продаж',
         redirect_url='sales_list'
     )
+
+def show_reports(request):
+    report_type = request.GET.get('report_type')
+    start_date = request.GET.get('start_date')
+    end_date = request.GET.get('end_date')
+    worker_id = request.GET.get('worker_id')
+
+    if start_date:
+        start_date = datetime.strptime(start_date, '%Y-%m-%d').date()
+    if end_date:
+        end_date = datetime.strptime(end_date, '%Y-%m-%d').date()
+
+    data = None
+    title = ''
+    extra_info = {}
+    template_name = 'moderator/sales/reports.html'
+    workers_list = Worker.objects.all()
+    if report_type == 'all_workers':
+        data = Worker.objects.all()
+        title = 'Повна інформація про співробітників'
+        template_name = 'moderator/workers/reports.html'
+
+    elif report_type == 'all_cars':
+        data = Car.objects.all()
+        title = 'Повна інформація про автомобілі'
+        template_name = 'moderator/cars/reports.html'
+
+    elif report_type == 'all_sales':
+        data = Sale.objects.all()
+        title = 'Повна інформація про продажі'
+
+    elif report_type == 'sales_by_date' and start_date:
+        data = reports.sales_by_date(start_date)
+        title = f'Продажі за {start_date}'
+
+    elif report_type == 'sales_by_time_period' and start_date and end_date:
+        data = reports.sales_by_time_period(start_date, end_date)
+        title = f'Продажі з {start_date} по {end_date}'
+
+    elif report_type == 'sales_by_worker' and worker_id:
+        data, worker_id = reports.sales_by_worker(worker_id)
+        title = 'Продажі конкретного працівника'
+
+    elif report_type == 'bestseller_car_by_time_period' and start_date and end_date:
+        car, bestseller_car, count = reports.bestseller_car_by_time_period(start_date, end_date)
+        data = car
+        extra_info = {'count': count, 'car': bestseller_car}
+        title = f'Найбільш продаваний автомобіль з {start_date} по {end_date}'
+
+    elif report_type == 'top_seller_by_time_period' and start_date and end_date:
+        worker, top_seller, profit = reports.top_seller_by_time_period(start_date, end_date)
+        data = worker
+        extra_info = {'worker_profit': profit, 'worker': top_seller}
+        title = f'Найуспішніший продавець з {start_date} по {end_date}'
+
+    elif report_type == 'total_profit_by_time_period' and start_date and end_date:
+        sales, profit = reports.total_profit_by_time_period(start_date, end_date)
+        data = sales
+        extra_info = {'profit': profit}
+        title = f'Сумарний прибуток з {start_date} по {end_date}'
+
+    return render(request, template_name, {'data': data, 'title': title, 'extra_info': extra_info, 'workers_list': workers_list})

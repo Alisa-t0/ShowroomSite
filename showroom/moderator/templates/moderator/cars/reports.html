@@ -1,0 +1,25 @@
+{% extends '../reports_base.html' %}
+
+{% block title %}Машини{% endblock %}
+
+{% block head_table %}
+    <th>ID</th>
+    <th>Назва виробника</th>
+    <th>Рік випуску</th>
+    <th>Модель</th>
+    <th>Собівартість</th>
+    <th>Потенційна ціна продажу</th>
+    <th>Наявність</th>
+{% endblock %}
+
+{% block body_table %}
+<tr>
+    <td>{{ object.id }}</td>
+    <td>{{ object.producer_name }}</td>
+    <td>{{ object.year_production }}</td>
+    <td>{{ object.model }}</td>
+    <td>{{ object.cost }} $</td>
+    <td>{{ object.potential_selling_price }} $</td>
+    <td>{% if object.is_available %}✅{% else %}❌{% endif %}</td>
+</tr>
+{% endblock %}

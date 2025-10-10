@@ -1,0 +1,23 @@
+{% extends '../reports_base.html' %}
+
+{% block title %}Співробітники{% endblock %}
+
+{% block head_table %}
+    <th>ID</th>
+    <th>ПІБ</th>
+    <th>Посада</th>
+    <th>Телефон</th>
+    <th>Email</th>
+    <th>Активний</th>
+{% endblock %}
+
+{% block body_table %}
+<tr>
+    <td>{{ object.id }}</td>
+    <td>{{ object.full_name }}</td>
+    <td>{{ object.position }}</td>
+    <td>{{ object.phone }}</td>
+    <td>{{ object.email }}</td>
+    <td>{% if object.is_active %}✅{% else %}❌{% endif %}</td>
+</tr>
+{% endblock %}

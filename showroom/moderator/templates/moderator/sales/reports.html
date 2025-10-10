@@ -1,0 +1,22 @@
+{% extends '../reports_base.html' %}
+
+{% block title %}Продажі{% endblock %}
+
+
+{% block head_table %}
+    <th>ID</th>
+    <th>Робітник</th>
+    <th>Машина</th>
+    <th>Дата продажу</th>
+    <th>Ціна продажу</th>
+{% endblock %}
+
+{% block body_table %}
+<tr>
+    <td>{{ object.id }}</td>
+    <td>{{ object.worker.full_name }}</td>
+    <td>{{ object.car.producer_name }} {{ object.car.model }}</td>
+    <td>{{ object.sale_date }}</td>
+    <td>{{ object.selling_price }} $</td>
+</tr>
+{% endblock %}

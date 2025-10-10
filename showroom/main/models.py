@@ -39,3 +39,8 @@ class Sale(models.Model):
 
     def get_absolute_url(self):
         return f'/moderator/sales/{self.pk}'
+
+    def profit(self):
+        return self.selling_price - self.car.cost
+
+

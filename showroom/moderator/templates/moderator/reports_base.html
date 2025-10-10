@@ -1,0 +1,86 @@
+{% extends 'layout_m.html' %}
+
+{% block title %}Звіти{% endblock %}
+
+{% block content %}
+<h2>Звіт</h2>
+
+<form method="get">
+    <select name="report_type">
+        <option value="">Оберіть звіт</option>
+        <option value="all_workers">Працівники</option>
+        <option value="all_cars">Автомобілі</option>
+        <option value="all_sales">Продажі</option>
+        <option value="sales_by_date">Продажі за дату</option>
+        <option value="sales_by_time_period">Продажі за період</option>
+        <option value="sales_by_worker">Продажі працівника</option>
+        <option value="bestseller_car_by_time_period">Найпопулярніший автомобіль</option>
+        <option value="top_seller_by_time_period">Найуспішніший продавець</option>
+        <option value="total_profit_by_time_period">Сумарний прибуток</option>
+    </select>
+
+
+    <label>ID працівника:</label>
+    <select name="worker_id">
+        <option value="">Оберіть працівника</option>
+        {% for worker in workers_list %}
+            <option value="{{ worker.id }}">{{ worker.full_name }}</option>
+        {% endfor %}
+    </select>
+    <label>Початкова дата:</label>
+    <input type="date" name="start_date">
+    <label>Кінцева дата:</label>
+    <input type="date" name="end_date">
+
+    <button type="submit">Показати</button>
+</form>
+
+<h2 style="text-align: center">{{ title }}</h2>
+  {% if extra_info %}
+    <div class="extra-info">
+      {% if extra_info.car %}
+        <h3>{{ extra_info.car.producer_name }} {{ extra_info.car.model }}</h3>
+        <p>Кількість продажів за цей час: {{ extra_info.count }}</p>
+
+      {% elif extra_info.worker %}
+        <p><strong>ID:</strong> {{ extra_info.worker.id }}</p>
+        <p><strong>ПІБ:</strong> {{ extra_info.worker.full_name }}</p>
+        <p><strong>Посада:</strong> {{ extra_info.worker.position }}</p>
+        <p><strong>Телефон:</strong> {{ extra_info.worker.phone }}</p>
+        <p><strong>Email:</strong> {{ extra_info.worker.email }}</p>
+        <p><strong>Працює зараз:</strong> {% if extra_info.worker.is_active %}Так{% else %}Ні{% endif %}</p>
+        <p><strong>Прибуток:</strong> {{ extra_info.worker_profit }} $</p>
+        {% endif %}
+        <h2 style="text-align: center">Список всіх продаж</h2>
+    </div>
+  {% endif %}
+
+{% if data %}
+<table>
+  <thead>
+    <tr>
+        {% block head_table %}
+        {% endblock %}
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        {% for object in data %}
+            {% block body_table %}
+            {% endblock %}
+         {% endfor %}
+    </tr>
+  </tbody>
+    {% if extra_info.profit %}
+  <tfoot>
+    <tr style="font-weight: bold; background: #f9f9f9;">
+        <td colspan="4" style="text-align: right;">Загальний прибуток:</td>
+        <td>{{ extra_info.profit }} $</td>
+    </tr>
+  </tfoot>
+{% endif %}
+</table>
+{% else %}
+  <p>Немає даних для відображення.</p>
+{% endif %}
+{% endblock %}
