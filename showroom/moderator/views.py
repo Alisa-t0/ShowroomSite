@@ -93,6 +93,10 @@ class SaleDeleteView(DeleteView):
 @moderator_required
 def show_objects_list(request, model_name, fields, template_name, objects_name):
     all_objects = model_name.objects.all()
+
+    sort_field = request.GET.get('sort', 'id')
+    direction = request.GET.get('dir', 'asc')
+
     if request.method == 'GET':
         filter_fields = fields
         filters = {}
@@ -101,8 +105,14 @@ def show_objects_list(request, model_name, fields, template_name, objects_name):
             if value:
                 filters[f] = value
         all_objects = all_objects.filter(**filters)
-    return render(request, template_name, {objects_name : all_objects})
 
+        if direction == 'desc':
+            all_objects = all_objects.order_by(f'-{sort_field}')
+        else:
+            all_objects = all_objects.order_by(sort_field)
+    return render(request, template_name, {objects_name : all_objects, 'sort_field' : sort_field, 'direction' : direction})
+
+@moderator_required
 def show_workers_list(request):
     return show_objects_list(request, Worker,
                              ['id', 'full_name', 'position', 'phone', 'email', 'is_active'],

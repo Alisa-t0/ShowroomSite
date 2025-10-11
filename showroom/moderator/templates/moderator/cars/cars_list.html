@@ -21,31 +21,31 @@
             <tr>
                 <th>
                     <input name="filter_id" type="number">
-                    ID
+                    <a href="?sort=id&dir={% if sort_field == 'id' and direction == 'asc' %}desc{% else %}asc{% endif %}">ID</a>
                 </th>
                 <th>
                     <input name="filter_producer_name" type="text">
-                    Назва виробника
+                    <a href="?sort=producer_name&dir={% if sort_field == 'producer_name' and direction == 'asc' %}desc{% else %}asc{% endif %}">Назва виробника</a>
                 </th>
                 <th>
                     <input name="filter_year_production" type="number">
-                    Рік випуску
+                    <a href="?sort=year_production&dir={% if sort_field == 'year_production' and direction == 'asc' %}desc{% else %}asc{% endif %}">Рік випуску</a>
                 </th>
                 <th>
                     <input name="filter_model" type="text">
-                    Модель
+                    <a href="?sort=model&dir={% if sort_field == 'model' and direction == 'asc' %}desc{% else %}asc{% endif %}">Модель</a>
                 </th>
                 <th>
                     <input name="filter_cost" type="number">
-                    Собівартість
+                    <a href="?sort=cost&dir={% if sort_field == 'cost' and direction == 'asc' %}desc{% else %}asc{% endif %}">Собівартість</a>
                 </th>
                 <th>
                     <input name="filter_potential_selling_price" type="number">
-                    Потенційна ціна продажу
+                    <a href="?sort=potential_selling_price&dir={% if sort_field == 'potential_selling_price' and direction == 'asc' %}desc{% else %}asc{% endif %}">Потенційна ціна продажу</a>
                 </th>
                 <th>
                     <input name="filter_is_available" type="boolean">
-                    Наявність
+                    <a href="?sort=is_available&dir={% if sort_field == 'is_available' and direction == 'asc' %}desc{% else %}asc{% endif %}">Наявність</a>
                 </th>
                 <th><button type="submit">ОК</button><br><br></th>
             </tr>

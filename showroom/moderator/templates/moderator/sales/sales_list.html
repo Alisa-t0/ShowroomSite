@@ -21,30 +21,28 @@
             <tr>
                 <th>
                     <input name="filter_id" type="number">
-                    ID
+                    <a href="?sort=id&dir={% if sort_field == 'id' and direction == 'asc' %}desc{% else %}asc{% endif %}">ID</a>
                 </th>
                 <th>
-                    <input name="filter_worker__full_name" type="text">
-                    Робітник
+                    <input name="filter_worker" type="text">
+                    <a href="?sort=worker&dir={% if sort_field == 'worker' and direction == 'asc' %}desc{% else %}asc{% endif %}">Робітник</a>
                 </th>
                 <th>
-                    <div class="inputs-row">
-                        <input name="filter_car__producer_name" type="text">
-                        <input name="filter_car__model" type="text">
-                    </div>
-                    Машина
+                    <input name="filter_car__producer_name" type="text" class='inputs-row' placeholder="Бренд">
+                    <input name="filter_car__model" type="text" class='inputs-row' placeholder="Модель">
+                    <a href="?sort=car&dir={% if sort_field == 'car' and direction == 'asc' %}desc{% else %}asc{% endif %}">Машина</a>
                 </th>
                 <th>
                     <input name="filter_sale_date" type="date">
-                    Дата продажу
+                    <a href="?sort=sale_date&dir={% if sort_field == 'sale_date' and direction == 'asc' %}desc{% else %}asc{% endif %}">Дата продажу</a>
                 </th>
                 <th>
                     <input name="filter_selling_price" type="number">
-                    Ціна продажу
+                    <a href="?sort=selling_price&dir={% if sort_field == 'selling_price' and direction == 'asc' %}desc{% else %}asc{% endif %}">Ціна продажу</a>
                 </th>
                 <th>
                     <input name="filter_profit" type="number">
-                    Прибуток
+                    <a href="?sort=profit&dir={% if sort_field == 'profit' and direction == 'asc' %}desc{% else %}asc{% endif %}">Прибуток</a>
                 </th>
                 <th><button type="submit">ОК</button><br><br></th>
             </tr>

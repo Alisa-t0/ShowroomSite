@@ -20,27 +20,27 @@
             <tr>
                 <th>
                     <input name="filter_id" type="number">
-                    ID
+                    <a href="?sort=id&dir={% if sort_field == 'id' and direction == 'asc' %}desc{% else %}asc{% endif %}">ID</a>
                 </th>
                 <th>
                     <input name="filter_full_name" type="text">
-                    ПІБ
+                    <a href="?sort=full_name&dir={% if sort_field == 'full_name' and direction == 'asc' %}desc{% else %}asc{% endif %}">ПІБ</a>
                 </th>
                 <th>
                     <input name="filter_position" type="text">
-                    Посада
+                    <a href="?sort=position&dir={% if sort_field == 'position' and direction == 'asc' %}desc{% else %}asc{% endif %}">Посада</a>
                 </th>
                 <th>
                     <input name="filter_phone" type="text">
-                    Телефон
+                    <a href="?sort=phone&dir={% if sort_field == 'phone' and direction == 'asc' %}desc{% else %}asc{% endif %}">Телефон</a>
                 </th>
                 <th>
                     <input name="filter_email" type="text">
-                    Email
+                    <a href="?sort=email&dir={% if sort_field == 'email' and direction == 'asc' %}desc{% else %}asc{% endif %}">Email</a>
                 </th>
                 <th>
                     <input name="filter_is_active" type="boolean">
-                    Активний
+                    <a href="?sort=is_active&dir={% if sort_field == 'is_active' and direction == 'asc' %}desc{% else %}asc{% endif %}">Активний</a>
                 </th>
                 <th><button type="submit">ОК</button><br><br></th>
             </tr>
