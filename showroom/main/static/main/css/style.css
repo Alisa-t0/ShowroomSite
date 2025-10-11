@@ -16,7 +16,7 @@ body {
 /* === Навигация === */
 .navbar {
     background: #000;
-    position: sticky;
+    position: relative;
     top: 0;
     z-index: 1000;
 }
@@ -26,6 +26,8 @@ body {
     align-items: center;
     gap: 3rem;
     padding: 1.5rem 3rem;
+    position: relative;
+
 }
 
 .logo {
@@ -62,6 +64,25 @@ body {
     color: #0070f3;
 }
 
+.user-icon {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.user-img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.user-img:hover {
+    transform: scale(1.1);
+    border-color: #ffcc00;
+}
 /* === Hero секция === */
 .hero {
     display: flex;
