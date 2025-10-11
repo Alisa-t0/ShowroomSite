@@ -10,6 +10,7 @@ from . import reports
 from hashlib import sha256
 from dotenv import load_dotenv
 from .decorators import moderator_required
+from django.http import HttpResponse
 
 # Create your views here.
 load_dotenv()
@@ -261,3 +262,70 @@ def export_workers(request):
         json.dump(data, file, ensure_ascii=False, indent=4)
 
     return render(request, 'moderator/export_done.html')
+
+def import_sales_from_file(request):
+    try:
+        with open('sales.json', 'r', encoding='utf-8-sig') as file:
+            sales = json.load(file)
+            for sale_data in sales.get('sales'):
+                worker, _ = Worker.objects.get_or_create(full_name=sale_data['worker'])
+
+                car_info = sale_data['car'].split(' ', 1)
+                car, _ = Car.objects.get_or_create(producer_name=car_info[0], model=car_info[1])
+
+                Sale.objects.get_or_create(
+                    id=sale_data['id'],
+                    defaults={
+                        'worker': worker,
+                        'car': car,
+                        'sale_date': sale_data['sale_date'],
+                        'selling_price': sale_data['selling_price'],
+                        'profit': sale_data['profit']}
+                )
+            return render(request, 'moderator/import_done.html')
+    except FileNotFoundError:
+        return HttpResponse('<h4>Помилка. Файл не знайдено</h4>')
+    except json.JSONDecodeError:
+        return HttpResponse('<h4>Помилка. Файл не розпізнано</h4>')
+
+def import_cars_from_file(request):
+    try:
+        with open('cars.json', 'r', encoding='utf-8-sig') as file:
+            cars = json.load(file)
+            for car_data in cars.get('cars'):
+                Car.objects.get_or_create(
+                    id=car_data['id'],
+                    defaults={
+                        'producer_name': car_data['producer_name'],
+                        'year_production': car_data['year_production'],
+                        'model': car_data['model'],
+                        'cost': car_data['cost'],
+                        'potential_selling_price': car_data['potential_selling_price'],
+                        'is_available': car_data['is_available']}
+                    )
+            return render(request, 'moderator/import_done.html')
+    except FileNotFoundError:
+        return HttpResponse('<h4>Помилка. Файл не знайдено</h4>')
+    except json.JSONDecodeError:
+        return HttpResponse('<h4>Помилка. Файл не розпізнано</h4>')
+
+def import_workers_from_file(request):
+    try:
+        with open('workers.json', 'r', encoding='utf-8-sig') as file:
+            workers = json.load(file)
+            for worker_data in workers.get('workers'):
+                Worker.objects.get_or_create(
+                    id=worker_data['id'],
+                    defaults={
+                            'full_name': worker_data['full_name'],
+                            'position': worker_data['position'],
+                            'phone': worker_data['phone'],
+                            'email': worker_data['email'],
+                            'is_active': worker_data['is_active'],
+                    }
+                 )
+            return render(request, 'moderator/import_done.html')
+    except FileNotFoundError:
+        return HttpResponse('<h4>Помилка. Файл не знайдено</h4>')
+    except json.JSONDecodeError:
+        return HttpResponse('<h4>Помилка. Файл не розпізнано</h4>')

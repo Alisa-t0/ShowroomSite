@@ -4,10 +4,17 @@
 
 {% block content %}
     <h2 style="text-align: center; margin-bottom: 30px;">Список продажів</h2>
-    <form action="{% url 'export_sales' %}" method="post">
-        {% csrf_token %}
-        <button type="submit">Експорт даних</button>
-    </form>
+    <div class="button-row">
+        <form action="{% url 'export_sales' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn export">Експорт даних</button>
+        </form>
+        </form>
+            <form action="{% url 'import_sales' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn import">Імпорт даних</button>
+        </form>
+    </div>
     <form method="get">
         {% csrf_token %}
         <table>

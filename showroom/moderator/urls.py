@@ -24,4 +24,7 @@ urlpatterns = [
     path('export_sales', views.export_sales, name='export_sales'),
     path('export_cars', views.export_cars, name='export_cars'),
     path('export_workers', views.export_workers, name='export_workers'),
+    path('import_sales', views.import_sales_from_file, name='import_sales'),
+    path('import_cars', views.import_cars_from_file, name='import_cars'),
+    path('import_workers', views.import_workers_from_file, name='import_workers'),
 ]

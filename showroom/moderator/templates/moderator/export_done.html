@@ -1,11 +1,11 @@
 {% extends 'layout_m.html' %}
 
-{% block title %}Експорт данних {% endblock %}
+{% block title %}{% block t %}Експорт даних {% endblock %}{% endblock %}
 
 {% block content %}
 <div class="modal-overlay">
     <div class="modal-container">
-        <h2>Дані успішно експортовано у файл</h2>
+        <h2>Дані успішно {% block b %}експортовано{% endblock %} у файл</h2>
         <a href="{% url 'moderator_main_page' %}" class="btn btn-back">На головну</a>
     </div>
 </div>
