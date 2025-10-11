@@ -19,13 +19,34 @@
         {% csrf_token %}
         <table>
             <tr>
-                <th>ID</th>
-                <th>Робітник</th>
-                <th>Машина</th>
-                <th>Дата продажу</th>
-                <th>Ціна продажу</th>
-                <th>Прибуток</th>
-                <th></th>
+                <th>
+                    <input name="filter_id" type="number">
+                    ID
+                </th>
+                <th>
+                    <input name="filter_worker__full_name" type="text">
+                    Робітник
+                </th>
+                <th>
+                    <div class="inputs-row">
+                        <input name="filter_car__producer_name" type="text">
+                        <input name="filter_car__model" type="text">
+                    </div>
+                    Машина
+                </th>
+                <th>
+                    <input name="filter_sale_date" type="date">
+                    Дата продажу
+                </th>
+                <th>
+                    <input name="filter_selling_price" type="number">
+                    Ціна продажу
+                </th>
+                <th>
+                    <input name="filter_profit" type="number">
+                    Прибуток
+                </th>
+                <th><button type="submit">ОК</button><br><br></th>
             </tr>
             {% for sale in all_sales %}
             <tr>

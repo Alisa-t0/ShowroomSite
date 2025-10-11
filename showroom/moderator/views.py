@@ -91,19 +91,37 @@ class SaleDeleteView(DeleteView):
     success_url = '..'
 
 @moderator_required
+def show_objects_list(request, model_name, fields, template_name, objects_name):
+    all_objects = model_name.objects.all()
+    if request.method == 'GET':
+        filter_fields = fields
+        filters = {}
+        for f in filter_fields:
+            value = request.GET.get(f'filter_{f}')
+            if value:
+                filters[f] = value
+        all_objects = all_objects.filter(**filters)
+    return render(request, template_name, {objects_name : all_objects})
+
 def show_workers_list(request):
-    all_workers = Worker.objects.all()
-    return render(request, 'moderator/workers/workers_list.html', {'all_workers': all_workers})
+    return show_objects_list(request, Worker,
+                             ['id', 'full_name', 'position', 'phone', 'email', 'is_active'],
+                             'moderator/workers/workers_list.html',
+                             'all_workers')
 
 @moderator_required
 def show_cars_list(request):
-    all_cars = Car.objects.all()
-    return render(request, 'moderator/cars/cars_list.html', {'all_cars': all_cars})
+    return show_objects_list(request, Car,
+                             ['id','producer_name', 'year_production', 'model', 'cost', 'potential_selling_price', 'is_available'],
+                             'moderator/cars/cars_list.html',
+                             'all_cars')
 
 @moderator_required
 def show_sales_list(request):
-    all_sales = Sale.objects.all()
-    return render(request, 'moderator/sales/sales_list.html', {'all_sales': all_sales})
+    return show_objects_list(request, Sale,
+                             ['id', 'worker__full_name', 'car__producer_name', 'sale_date', 'selling_price', 'profit'],
+                             'moderator/sales/sales_list.html',
+                             'all_sales')
 
 @moderator_required
 def create_object(request, object_form, object_name, redirect_url):
@@ -204,6 +222,7 @@ def show_reports(request):
 
     return render(request, template_name,{'data': data, 'title': title, 'extra_info': extra_info, 'workers_list': workers_list})
 
+@moderator_required
 def export_sales(request):
     sales = Sale.objects.all()
     data = {
@@ -223,7 +242,7 @@ def export_sales(request):
 
     return render(request, 'moderator/export_done.html')
 
-
+@moderator_required
 def export_cars(request):
     cars = Car.objects.all()
     data = {
@@ -244,7 +263,7 @@ def export_cars(request):
 
     return render(request, 'moderator/export_done.html')
 
-
+@moderator_required
 def export_workers(request):
     workers = Worker.objects.all()
     data = {
@@ -263,6 +282,7 @@ def export_workers(request):
 
     return render(request, 'moderator/export_done.html')
 
+@moderator_required
 def import_sales_from_file(request):
     try:
         with open('sales.json', 'r', encoding='utf-8-sig') as file:
@@ -288,6 +308,7 @@ def import_sales_from_file(request):
     except json.JSONDecodeError:
         return HttpResponse('<h4>Помилка. Файл не розпізнано</h4>')
 
+@moderator_required
 def import_cars_from_file(request):
     try:
         with open('cars.json', 'r', encoding='utf-8-sig') as file:
@@ -309,6 +330,7 @@ def import_cars_from_file(request):
     except json.JSONDecodeError:
         return HttpResponse('<h4>Помилка. Файл не розпізнано</h4>')
 
+@moderator_required
 def import_workers_from_file(request):
     try:
         with open('workers.json', 'r', encoding='utf-8-sig') as file:

@@ -17,16 +17,37 @@
 </div>
     <form method="get">
         {% csrf_token %}
-        <table>
+        <table class="filter-table">
             <tr>
-                <th>ID</th>
-                <th>Назва виробника</th>
-                <th>Рік випуску</th>
-                <th>Модель</th>
-                <th>Собівартість</th>
-                <th>Потенційна ціна продажу</th>
-                <th>Наявність</th>
-                <th></th>
+                <th>
+                    <input name="filter_id" type="number">
+                    ID
+                </th>
+                <th>
+                    <input name="filter_producer_name" type="text">
+                    Назва виробника
+                </th>
+                <th>
+                    <input name="filter_year_production" type="number">
+                    Рік випуску
+                </th>
+                <th>
+                    <input name="filter_model" type="text">
+                    Модель
+                </th>
+                <th>
+                    <input name="filter_cost" type="number">
+                    Собівартість
+                </th>
+                <th>
+                    <input name="filter_potential_selling_price" type="number">
+                    Потенційна ціна продажу
+                </th>
+                <th>
+                    <input name="filter_is_available" type="boolean">
+                    Наявність
+                </th>
+                <th><button type="submit">ОК</button><br><br></th>
             </tr>
             {% for car in all_cars %}
             <tr>

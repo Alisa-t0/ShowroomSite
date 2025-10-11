@@ -18,13 +18,31 @@
         {% csrf_token %}
         <table>
             <tr>
-                <th>ID</th>
-                <th>ПІБ</th>
-                <th>Посада</th>
-                <th>Телефон</th>
-                <th>Email</th>
-                <th>Активний</th>
-                <th></th>
+                <th>
+                    <input name="filter_id" type="number">
+                    ID
+                </th>
+                <th>
+                    <input name="filter_full_name" type="text">
+                    ПІБ
+                </th>
+                <th>
+                    <input name="filter_position" type="text">
+                    Посада
+                </th>
+                <th>
+                    <input name="filter_phone" type="text">
+                    Телефон
+                </th>
+                <th>
+                    <input name="filter_email" type="text">
+                    Email
+                </th>
+                <th>
+                    <input name="filter_is_active" type="boolean">
+                    Активний
+                </th>
+                <th><button type="submit">ОК</button><br><br></th>
             </tr>
             {% for worker in all_workers %}
             <tr>
