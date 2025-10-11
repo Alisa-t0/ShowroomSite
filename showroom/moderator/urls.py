@@ -21,4 +21,7 @@ urlpatterns = [
     path('sales/<int:pk>/delete', views.SaleDeleteView.as_view(), name='sale_delete'),
     path('reports', views.show_reports, name='reports'),
     path('logout_moderator', views.logout_moderator, name='logout_moderator'),
+    path('export_sales', views.export_sales, name='export_sales'),
+    path('export_cars', views.export_cars, name='export_cars'),
+    path('export_workers', views.export_workers, name='export_workers'),
 ]

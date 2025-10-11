@@ -1,3 +1,4 @@
+import json
 import os
 
 from django.shortcuts import render, redirect
@@ -201,3 +202,62 @@ def show_reports(request):
         title = f'Сумарний прибуток з {start_date} по {end_date}'
 
     return render(request, template_name,{'data': data, 'title': title, 'extra_info': extra_info, 'workers_list': workers_list})
+
+def export_sales(request):
+    sales = Sale.objects.all()
+    data = {
+        'sales': [{
+            'id': sale.id,
+            'worker': sale.worker.full_name,
+            'car': f'{sale.car.producer_name} {sale.car.model}',
+            'sale_date': str(sale.sale_date),
+            'selling_price': sale.selling_price,
+            'profit': sale.profit,
+            }for sale in sales
+        ]
+    }
+
+    with open('sales.json', 'w', encoding='utf-8') as file:
+        json.dump(data, file, ensure_ascii=False, indent=4)
+
+    return render(request, 'moderator/export_done.html')
+
+
+def export_cars(request):
+    cars = Car.objects.all()
+    data = {
+        'cars': [{
+            'id': car.id,
+            'producer_name': car.producer_name,
+            'year_production': car.year_production,
+            'model': car.model,
+            'cost': car.cost,
+            'potential_selling_price': car.potential_selling_price,
+            'is_available': car.is_available,
+            }for car in cars
+        ]
+    }
+
+    with open('cars.json', 'w', encoding='utf-8') as file:
+        json.dump(data, file, ensure_ascii=False, indent=4)
+
+    return render(request, 'moderator/export_done.html')
+
+
+def export_workers(request):
+    workers = Worker.objects.all()
+    data = {
+        'workers': [{
+            'id': worker.id,
+            'full_name': worker.full_name,
+            'position': worker.position,
+            'phone': worker.phone,
+            'email': worker.email,
+            'is_active': worker.is_active,
+            }for worker in workers
+        ]
+    }
+    with open('workers.json', 'w', encoding='utf-8') as file:
+        json.dump(data, file, ensure_ascii=False, indent=4)
+
+    return render(request, 'moderator/export_done.html')

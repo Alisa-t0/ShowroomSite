@@ -1,0 +1,58 @@
+{
+    "cars": [
+        {
+            "id": 1,
+            "producer_name": "Range Rover",
+            "year_production": 2023,
+            "model": "Sport",
+            "cost": 70000,
+            "potential_selling_price": 80000,
+            "is_available": true
+        },
+        {
+            "id": 2,
+            "producer_name": "Mercedes-Benz",
+            "year_production": 2022,
+            "model": "C-Class",
+            "cost": 45000,
+            "potential_selling_price": 50000,
+            "is_available": true
+        },
+        {
+            "id": 3,
+            "producer_name": "Tesla",
+            "year_production": 2024,
+            "model": "Model 3",
+            "cost": 40000,
+            "potential_selling_price": 45000,
+            "is_available": false
+        },
+        {
+            "id": 4,
+            "producer_name": "Porsche",
+            "year_production": 2022,
+            "model": "911",
+            "cost": 110000,
+            "potential_selling_price": 120000,
+            "is_available": true
+        },
+        {
+            "id": 6,
+            "producer_name": "Audi",
+            "year_production": 2020,
+            "model": "A6",
+            "cost": 35000,
+            "potential_selling_price": 40000,
+            "is_available": false
+        },
+        {
+            "id": 8,
+            "producer_name": "Hyundai",
+            "year_production": 2021,
+            "model": "Tucson",
+            "cost": 22000,
+            "potential_selling_price": 27000,
+            "is_available": true
+        }
+    ]
+}

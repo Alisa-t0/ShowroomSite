@@ -36,7 +36,7 @@ def top_seller_by_time_period(start_date, end_date):
         worker_sales = Sale.objects.filter(worker=sale.worker)
         profit_worker = 0
         for worker_sale in worker_sales:
-            profit_worker += worker_sale.profit()
+            profit_worker += worker_sale.profit
         if profit_worker > profit_top_seller:
             profit_top_seller = profit_worker
             top_seller = sale.worker
@@ -45,7 +45,7 @@ def top_seller_by_time_period(start_date, end_date):
 def total_profit_by_time_period(start_date, end_date):
     total_profit = 0
     for sale in sales_by_time_period(start_date, end_date):
-        total_profit += sale.profit()
+        total_profit += sale.profit
 
     return sales_by_time_period(start_date, end_date),total_profit
 

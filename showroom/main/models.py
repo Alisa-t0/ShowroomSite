@@ -33,6 +33,7 @@ class Sale(models.Model):
     car = models.ForeignKey(Car, on_delete=models.PROTECT)
     sale_date = models.DateField()
     selling_price = models.IntegerField()
+    profit = models.IntegerField(editable=False, default=0)
 
     def __str__(self):
         return f'Продаж: {self.car.producer_name} {self.car.model} з {self.worker.full_name}'
@@ -40,7 +41,6 @@ class Sale(models.Model):
     def get_absolute_url(self):
         return f'/moderator/sales/{self.pk}'
 
-    def profit(self):
-        return self.selling_price - self.car.cost
-
-
+    def save(self, *args, **kwargs):
+        self.profit = self.selling_price - self.car.cost
+        super().save(*args, **kwargs)

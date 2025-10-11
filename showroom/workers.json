@@ -1,0 +1,44 @@
+{
+    "workers": [
+        {
+            "id": 1,
+            "full_name": "Іван Петренко",
+            "position": "Менеджер продажу",
+            "phone": "+380671234567",
+            "email": "ivan.petrenko@email.com",
+            "is_active": true
+        },
+        {
+            "id": 2,
+            "full_name": "Ольга Коваль",
+            "position": "Консультант",
+            "phone": "+380631112233",
+            "email": "olga.koval@email.com",
+            "is_active": true
+        },
+        {
+            "id": 3,
+            "full_name": "Сергій Шевченко",
+            "position": "Менеджер з сервісу",
+            "phone": "+380987654321",
+            "email": "serhiy.shevchenko@email.com",
+            "is_active": true
+        },
+        {
+            "id": 4,
+            "full_name": "Марія Литвин",
+            "position": "Адміністратор",
+            "phone": "+380501234567",
+            "email": "maria.lytvyn@email.com",
+            "is_active": false
+        },
+        {
+            "id": 5,
+            "full_name": "Олег Коваль",
+            "position": "Консультант",
+            "phone": "+380501209867",
+            "email": "ikoval@example.com",
+            "is_active": true
+        }
+    ]
+}

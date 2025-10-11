@@ -9,6 +9,7 @@
     <th>Машина</th>
     <th>Дата продажу</th>
     <th>Ціна продажу</th>
+    <th>Прибуток</th>
 {% endblock %}
 
 {% block body_table %}
@@ -18,5 +19,6 @@
     <td>{{ object.car.producer_name }} {{ object.car.model }}</td>
     <td>{{ object.sale_date }}</td>
     <td>{{ object.selling_price }} $</td>
+    <td>{{ object.profit }} $</td>
 </tr>
 {% endblock %}

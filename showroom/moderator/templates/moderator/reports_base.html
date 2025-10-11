@@ -50,6 +50,8 @@
         <p><strong>Email:</strong> {{ extra_info.worker.email }}</p>
         <p><strong>Працює зараз:</strong> {% if extra_info.worker.is_active %}Так{% else %}Ні{% endif %}</p>
         <p><strong>Прибуток:</strong> {{ extra_info.worker_profit }} $</p>
+      {% elif extra_info.profit %}
+        <p>Загальний прибуток за цей час: {{ extra_info.profit }}</p>
         {% endif %}
         <h2 style="text-align: center">Список всіх продаж</h2>
     </div>
@@ -72,13 +74,13 @@
     </tr>
   </tbody>
     {% if extra_info.profit %}
-  <tfoot>
-    <tr style="font-weight: bold; background: #f9f9f9;">
-        <td colspan="4" style="text-align: right;">Загальний прибуток:</td>
-        <td>{{ extra_info.profit }} $</td>
-    </tr>
-  </tfoot>
-{% endif %}
+      <tfoot>
+        <tr style="font-weight: bold; background: #f9f9f9;">
+            <td colspan="5" style="text-align: right;">Загальний прибуток:</td>
+            <td>{{ extra_info.profit }} $</td>
+        </tr>
+      </tfoot>
+    {% endif %}
 </table>
 {% else %}
   <p>Немає даних для відображення.</p>
