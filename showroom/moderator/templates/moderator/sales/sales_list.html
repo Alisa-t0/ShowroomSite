@@ -28,8 +28,10 @@
                     <a href="?sort=worker&dir={% if sort_field == 'worker' and direction == 'asc' %}desc{% else %}asc{% endif %}">Робітник</a>
                 </th>
                 <th>
-                    <input name="filter_car__producer_name" type="text" class='inputs-row' placeholder="Бренд">
-                    <input name="filter_car__model" type="text" class='inputs-row' placeholder="Модель">
+                    <div class="filter-inline">
+                        <input name="filter_car__producer_name" type="text" placeholder="Бренд">
+                        <input name="filter_car__model" type="text" placeholder="Модель">
+                    </div>
                     <a href="?sort=car&dir={% if sort_field == 'car' and direction == 'asc' %}desc{% else %}asc{% endif %}">Машина</a>
                 </th>
                 <th>

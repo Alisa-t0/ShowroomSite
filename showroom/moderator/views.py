@@ -1,6 +1,5 @@
 import json
 import os
-
 from django.shortcuts import render, redirect
 from django.views.generic import DetailView, UpdateView, DeleteView
 from main.models import Worker, Car, Sale
