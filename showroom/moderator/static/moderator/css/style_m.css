@@ -152,7 +152,7 @@ button:hover {
     transform: translateY(-2px);
 }
 
-body.add-employee-page .container {
+body.add-item-page .container {
     max-width: 600px;
     padding: 40px;
     font-size: 16px;
@@ -160,18 +160,14 @@ body.add-employee-page .container {
 
 
 
-body.add-employee-page .checkbox-group {
+body.add-item-page .checkbox-group {
     display: flex;
     align-items: center;
     gap: 8 px;
 }
 
-body.add-employee-page .checkbox-group input[type="checkbox"] {
-    width: 22px;
-    height: 22px;
-}
 
-body.add-employee-page button {
+body.add-item-page button {
     display: block;
     margin: 20px auto;
     padding: 14px 28px;
@@ -179,34 +175,34 @@ body.add-employee-page button {
 }
 
 
-.worker-card h2 {
+.item-card h2 {
     text-align: center;
     margin-bottom: 25px;
     font-size: 22px;
     color: #2c3e50;
 }
 
-.worker-info p {
+.item-info p {
     font-size: 16px;
     margin: 10px 0;
     border-bottom: 1px solid #eee;
     padding-bottom: 6px;
 }
 
-.worker-info strong {
+.item-info strong {
     color: #2c3e50;
     display: inline-block;
     width: 150px;
 }
 
-.worker-actions {
+.item-actions {
     display: flex;
     justify-content: center;
     gap: 15px;
     margin-top: 25px;
 }
 
-.worker-actions .btn {
+.item-actions .btn {
     background: #0077cc;
     color: white;
     padding: 10px 20px;
@@ -216,19 +212,19 @@ body.add-employee-page button {
     transition: 0.3s;
 }
 
-.worker-actions .btn:hover {
+.item-actions .btn:hover {
     background: #005fa3;
 }
 
-.worker-actions .btn-back {
+.item-actions .btn-back {
     background: #777;
 }
 
-.worker-actions .btn-back:hover {
+.item-actions .btn-back:hover {
     background: #555;
 }
 
-body.worker-page .container {
+body.item-page .container {
     max-width: 600px;
     padding: 40px;
     font-size: 16px;

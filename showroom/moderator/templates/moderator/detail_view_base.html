@@ -3,15 +3,15 @@
 {% block title %}Додаткова інформація{% endblock %}
 
 {% block content %}
-<body class="worker-page">
-<div class="worker-card">
+<body class="item-page">
+<div class="item-card">
     <h2>Деталі</h2>
 
-    <div class="worker-info">
+    <div class="item-info">
         {% block inner %}
         {% endblock %}
     </div>
-     <div class="worker-actions">
+     <div class="item-actions">
         <a href="{% block l %}{% endblock %}" class="btn">Оновити</a>
         <a href="{% block d %}{% endblock %}" class="btn btn-delete">Видалити</a>
         <a href="." class="btn btn-back">Назад</a>
