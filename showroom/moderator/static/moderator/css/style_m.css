@@ -264,27 +264,30 @@ a.btn.btn-delete:hover {
 }
 
 .modal-actions {
-    margin-top: 20px;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
 }
 
-.modal-actions .btn {
+.modal-actions form {
+    margin: 0;
+}
+
+.modal-actions .btn,
+.modal-actions button.btn {
+    display: inline-block;
     padding: 10px 20px;
-    font-weight: bold;
-    border-radius: 8px;
+    border-radius: 6px;
     text-decoration: none;
-    transition: 0.3s;
-}
-
-.modal-actions .btn-back {
-    background-color: #777;
-    color: white;
-}
-
-.modal-actions .btn-back:hover {
-    background-color: #555;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1; /* вирівнює текст по висоті */
+    border: none;
+    cursor: pointer;
+    height: 42px; /* однакова висота */
+    box-sizing: border-box;
 }
 
 .modal-actions .btn-delete {
@@ -295,7 +298,14 @@ a.btn.btn-delete:hover {
 .modal-actions .btn-delete:hover {
     background-color: #c0392b;
 }
+.modal-actions .btn-back {
+    background-color: #777;
+    color: white;
+}
 
+.modal-actions .btn-back:hover {
+    background-color: #555;
+}
 .logout-btn {
    position: absolute;
    top: 7px;
@@ -414,6 +424,64 @@ form {
     background-color: #fff;
     box-shadow: 0 0 6px rgba(0, 123, 255, 0.3);
 }
+
+.extra-info {
+    background-color: #f9fafc;
+    border: 1px solid #e0e6ed;
+    border-radius: 12px;
+    padding: 20px 30px;
+    margin: 30px auto;
+    max-width: 800px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.extra-info:hover {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.extra-info h3 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.extra-info p {
+    margin: 6px 0;
+    font-size: 1rem;
+    color: #34495e;
+    line-height: 1.4;
+}
+
+.extra-info strong {
+    color: #2c3e50;
+}
+
+.extra-info .highlight {
+    background: #e8f6f3;
+    padding: 5px 10px;
+    border-radius: 6px;
+    color: #16a085;
+    font-weight: 600;
+}
+
+.extra-info .profit {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #27ae60;
+    font-weight: bold;
+    margin-top: 15px;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}
+
+.extra-info h2 {
+    text-align: center;
+    color: #34495e;
+    margin-top: 25px;
+}
+
 
 
 

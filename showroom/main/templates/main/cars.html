@@ -9,6 +9,7 @@
             <h3>{{ car.producer_name}} {{ car.model }}</h3>
             <p>Рік: {{ car.year_production }}</p>
             <p>Ціна: {{ car.potential_selling_price }} $</p>
+            <a href="{% url 'contacts_page' %}" class="modern-btn">Взяти тест-драйв</a>
         </div>
     {% empty %}
         <p>Немає доступних автомобілів.</p>

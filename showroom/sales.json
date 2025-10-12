@@ -15,6 +15,30 @@
             "sale_date": "2025-09-19",
             "selling_price": 43000,
             "profit": 8000
+        },
+        {
+            "id": 3,
+            "worker": "Андрій Шевченко",
+            "car": "Ford Focus",
+            "sale_date": "2025-10-14",
+            "selling_price": 14000,
+            "profit": 2000
+        },
+        {
+            "id": 4,
+            "worker": "Сергій Іваненко",
+            "car": "Audi A4",
+            "sale_date": "2025-10-11",
+            "selling_price": 34000,
+            "profit": 4000
+        },
+        {
+            "id": 5,
+            "worker": "Іван Петренко",
+            "car": "Toyota Corolla",
+            "sale_date": "2025-10-11",
+            "selling_price": 17000,
+            "profit": 2000
         }
     ]
 }

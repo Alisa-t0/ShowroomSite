@@ -44,3 +44,5 @@ class Sale(models.Model):
     def save(self, *args, **kwargs):
         self.profit = self.selling_price - self.car.cost
         super().save(*args, **kwargs)
+        self.car.is_available = False
+        self.car.save()

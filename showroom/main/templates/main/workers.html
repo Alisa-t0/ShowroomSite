@@ -10,6 +10,7 @@
             <p>Посада: {{ worker.position }}</p>
             <p>Телефон: {{ worker.phone }}</p>
             <p>Email: {{ worker.email }}</p>
+            <a href="{% url 'contacts_page' %}" class="modern-btn secondary">Зв’язатись</a>
         </div>
     {% empty %}
         <p>Немає даних про співробітників.</p>

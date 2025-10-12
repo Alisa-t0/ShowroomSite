@@ -22,12 +22,12 @@ def bestseller_car_by_time_period(start_date, end_date):
     bestseller_car = None
     count_bestseller_car = 0
     for sale in sales_by_time_period(start_date, end_date):
-        count_car = Sale.objects.filter(car=sale.car).count()
+        count_car = Sale.objects.filter(car__producer_name=sale.car.producer_name, car__model=sale.car.model).count()
         if count_car > count_bestseller_car:
             count_bestseller_car = count_car
             bestseller_car = sale.car
 
-    return Sale.objects.filter(car=bestseller_car), bestseller_car, count_bestseller_car
+    return Sale.objects.filter(car__producer_name=sale.car.producer_name, car__model=sale.car.model), bestseller_car, count_bestseller_car
 
 def top_seller_by_time_period(start_date, end_date):
     top_seller = None

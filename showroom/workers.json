@@ -3,7 +3,7 @@
         {
             "id": 1,
             "full_name": "Іван Петренко",
-            "position": "Менеджер продажу",
+            "position": "Продавець",
             "phone": "+380671234567",
             "email": "ivan.petrenko@email.com",
             "is_active": true
@@ -14,7 +14,7 @@
             "position": "Консультант",
             "phone": "+380631112233",
             "email": "olga.koval@email.com",
-            "is_active": true
+            "is_active": false
         },
         {
             "id": 3,
@@ -38,6 +38,30 @@
             "position": "Консультант",
             "phone": "+380501209867",
             "email": "ikoval@example.com",
+            "is_active": true
+        },
+        {
+            "id": 7,
+            "full_name": "Сергій Іваненко",
+            "position": "Продавець",
+            "phone": "+380631234890",
+            "email": "sergii.ivanenko@mail.com",
+            "is_active": true
+        },
+        {
+            "id": 8,
+            "full_name": "Марія Гончар",
+            "position": "Адміністратор",
+            "phone": "+380661234567",
+            "email": "maria.gonchar@gmail.com",
+            "is_active": true
+        },
+        {
+            "id": 9,
+            "full_name": "Андрій Шевченко",
+            "position": "Продавець",
+            "phone": "+380991234567",
+            "email": "andrii.shevchenko@gmail.com",
             "is_active": true
         }
     ]

@@ -3,7 +3,7 @@
 {% block title %}Звіти{% endblock %}
 
 {% block content %}
-<h2>Звіт</h2>
+<h2 style="text-align: center; margin-bottom: 30px;">Звіт</h2>
 
 <form method="get">
     <select name="report_type">
@@ -37,24 +37,34 @@
 
 <h2 style="text-align: center">{{ title }}</h2>
   {% if extra_info %}
-    <div class="extra-info">
-      {% if extra_info.car %}
-        <h3>{{ extra_info.car.producer_name }} {{ extra_info.car.model }}</h3>
-        <p>Кількість продажів за цей час: {{ extra_info.count }}</p>
+      <div class="extra-info">
+        {% if extra_info.car %}
+          <h3>{{ extra_info.car.producer_name }} {{ extra_info.car.model }}</h3>
+          <p>Кількість продажів за цей час:
+            <span class="highlight">{{ extra_info.count }}</span>
+          </p>
 
-      {% elif extra_info.worker %}
-        <p><strong>ID:</strong> {{ extra_info.worker.id }}</p>
-        <p><strong>ПІБ:</strong> {{ extra_info.worker.full_name }}</p>
-        <p><strong>Посада:</strong> {{ extra_info.worker.position }}</p>
-        <p><strong>Телефон:</strong> {{ extra_info.worker.phone }}</p>
-        <p><strong>Email:</strong> {{ extra_info.worker.email }}</p>
-        <p><strong>Працює зараз:</strong> {% if extra_info.worker.is_active %}Так{% else %}Ні{% endif %}</p>
-        <p><strong>Прибуток:</strong> {{ extra_info.worker_profit }} $</p>
-      {% elif extra_info.profit %}
-        <p>Загальний прибуток за цей час: {{ extra_info.profit }}</p>
+        {% elif extra_info.worker %}
+          <h3>Інформація про працівника</h3>
+          <p><strong>ID:</strong> {{ extra_info.worker.id }}</p>
+          <p><strong>ПІБ:</strong> {{ extra_info.worker.full_name }}</p>
+          <p><strong>Посада:</strong> {{ extra_info.worker.position }}</p>
+          <p><strong>Телефон:</strong> {{ extra_info.worker.phone }}</p>
+          <p><strong>Email:</strong> {{ extra_info.worker.email }}</p>
+          <p><strong>Працює зараз:</strong>
+            <span class="highlight">
+              {% if extra_info.worker.is_active %}Так{% else %}Ні{% endif %}
+            </span>
+          </p>
+          <div class="profit">Прибуток: {{ extra_info.worker_profit }} $</div>
+
+        {% elif extra_info.profit %}
+          <h3>💰 Загальний прибуток</h3>
+          <div class="profit">{{ extra_info.profit }} $</div>
         {% endif %}
-        <h2 style="text-align: center">Список всіх продаж</h2>
-    </div>
+      </div>
+    <h2 style="text-align: center; margin-bottom: 30px;">Список усіх продаж</h2>
+
   {% endif %}
 
 {% if data %}

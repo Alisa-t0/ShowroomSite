@@ -53,6 +53,51 @@
             "cost": 22000,
             "potential_selling_price": 27000,
             "is_available": true
+        },
+        {
+            "id": 9,
+            "producer_name": "Toyota",
+            "year_production": 2020,
+            "model": "Corolla",
+            "cost": 15000,
+            "potential_selling_price": 18000,
+            "is_available": false
+        },
+        {
+            "id": 10,
+            "producer_name": "BMW",
+            "year_production": 2022,
+            "model": "X5",
+            "cost": 50000,
+            "potential_selling_price": 60000,
+            "is_available": true
+        },
+        {
+            "id": 11,
+            "producer_name": "Audi",
+            "year_production": 2021,
+            "model": "A4",
+            "cost": 30000,
+            "potential_selling_price": 35000,
+            "is_available": false
+        },
+        {
+            "id": 12,
+            "producer_name": "Mercedes-Benz",
+            "year_production": 2019,
+            "model": "C200",
+            "cost": 25000,
+            "potential_selling_price": 30000,
+            "is_available": true
+        },
+        {
+            "id": 13,
+            "producer_name": "Ford",
+            "year_production": 2020,
+            "model": "Focus",
+            "cost": 12000,
+            "potential_selling_price": 15000,
+            "is_available": false
         }
     ]
 }
