@@ -1,0 +1,36 @@
+LOGGING SIMPLE| Level: INFO. Text: Модератор успішно увійшов у систему.
+LOGGING SIMPLE| Level: INFO. Text: Користувач відкрив головну сторінку входу модератора.
+LOGGING SIMPLE| Level: INFO. Text: Модератор переглянув список об’єктів: <class 'main.models.Worker'>.
+LOGGING SIMPLE| Level: INFO. Text: Модератор переглянув список об’єктів: <class 'main.models.Car'>.
+LOGGING SIMPLE| Level: INFO. Text: Модератор переглянув список об’єктів: <class 'main.models.Sale'>.
+LOGGING SIMPLE| Level: INFO. Text: Відбувся експорт продажів.
+LOGGING SIMPLE| Level: INFO. Text: Користувач відкрив головну сторінку входу модератора.
+LOGGING SIMPLE| Level: INFO. Text: Модератор відкрив сторінку звітів.
+LOGGING SIMPLE| Level: INFO. Text: Модератор переглянув список об’єктів: <class 'main.models.Car'>.
+LOGGING SIMPLE| Level: INFO. Text: Модератор переглянув список об’єктів: <class 'main.models.Sale'>.
+LOGGING SIMPLE| Level: INFO. Text: Модератор вийшов із системи.
+LOGGING SIMPLE| Level: INFO. Text: Модератор успішно увійшов у систему.
+LOGGING SIMPLE| Level: INFO. Text: Користувач відкрив головну сторінку входу модератора.
+LOGGING SIMPLE| Level: INFO. Text: Користувач відкрив головну сторінку входу модератора.
+LOGGING SIMPLE| Level: INFO. Text: Модератор успішно увійшов у систему.
+LOGGING SIMPLE| Level: INFO. Text: Користувач відкрив головну сторінку входу модератора.
+LOGGING SIMPLE| Level: INFO. Text: Модератор вийшов із системи.
+LOGGING SIMPLE| Level: WARNING. Text: Невдала спроба входу в акаунт модератора.
+LOGGING SIMPLE| Level: INFO. Text: Модератор успішно увійшов у систему.
+LOGGING SIMPLE| Level: INFO. Text: Користувач відкрив головну сторінку входу модератора.
+LOGGING SIMPLE| Level: INFO. Text: Модератор успішно увійшов у систему.
+LOGGING SIMPLE| Level: INFO. Text: Користувач відкрив головну сторінку входу модератора.
+LOGGING SIMPLE| Level: INFO. Text: Користувач відкрив головну сторінку входу модератора.
+LOGGING SIMPLE| Level: INFO. Text: Модератор переглянув список об’єктів: <class 'main.models.Worker'>.
+LOGGING SIMPLE| Level: INFO. Text: Модератор переглянув список об’єктів: <class 'main.models.Car'>.
+LOGGING SIMPLE| Level: INFO. Text: Модератор переглянув список об’єктів: <class 'main.models.Sale'>.
+LOGGING SIMPLE| Level: INFO. Text: Модератор відкрив сторінку звітів.
+LOGGING SIMPLE| Level: INFO. Text: Модератор переглянув список об’єктів: <class 'main.models.Worker'>.. Time: 2025-10-13 13:17:44,771
+LOGGING SIMPLE| Level: INFO. Text: Модератор переглянув список об’єктів: <class 'main.models.Car'>.. Time: 2025-10-13 13:17:52,448
+LOGGING SIMPLE| Level: INFO. Text: Користувач відкрив головну сторінку входу модератора.. Time: 2025-10-13 13:19:15,657
+LOGGING SIMPLE| Level: INFO. Text: Модератор переглянув список об’єктів: <class 'main.models.Worker'>.. Time: 2025-10-13 13:19:16,543
+LOGGING SIMPLE| Level: INFO. Text: Модератор переглянув список об’єктів: <class 'main.models.Car'>.. Time: 2025-10-13 13:19:17,617
+LOGGING SIMPLE| Level: INFO. Text: Модератор переглянув список об’єктів: <class 'main.models.Sale'>.. Time: 2025-10-13 13:19:19,089
+LOGGING SIMPLE| Level: INFO. Text: Модератор відкрив сторінку звітів.. Time: 2025-10-13 13:19:19,458
+LOGGING SIMPLE| Level: INFO | Text: Користувач відкрив головну сторінку входу модератора. | Time: 2025-10-13 13:21:26,953
+LOGGING SIMPLE| Level: INFO | Text: Модератор вийшов із системи. | Time: 2025-10-13 13:21:28,475
