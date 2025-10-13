@@ -283,10 +283,10 @@ a.btn.btn-delete:hover {
     text-decoration: none;
     font-weight: 600;
     font-size: 16px;
-    line-height: 1; /* вирівнює текст по висоті */
+    line-height: 1;
     border: none;
     cursor: pointer;
-    height: 42px; /* однакова висота */
+    height: 42px;
     box-sizing: border-box;
 }
 
@@ -318,6 +318,17 @@ a.btn.btn-delete:hover {
    font-weight: bold;
 }
 
+.log-btn {
+   position: absolute;
+   top: 7px;
+   right: 100px;
+   background-color: #777;
+   color: white;
+   padding: 6px 12px;
+   border-radius: 6px;
+   text-decoration: none;
+   font-weight: bold;
+}
 .btn {
   display: inline-block;
   padding: 10px 20px;

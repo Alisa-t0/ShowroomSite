@@ -10,6 +10,9 @@ from hashlib import sha256
 from dotenv import load_dotenv
 from .decorators import moderator_required
 from django.http import HttpResponse
+import logging
+
+logger = logging.getLogger('moderator')
 
 # Create your views here.
 load_dotenv()
@@ -24,18 +27,21 @@ def show_login_page_moderator(request):
         correct_password = os.getenv('MYSHOWROOM_PASSWORD')
         if entered_login == correct_login and entered_password == correct_password:
             request.session['is_moderator'] = True
+            logger.info('Модератор успішно увійшов у систему.')
             return redirect('moderator_main_page')
-        error = 'Невірні дані'
-    return render(request, 'moderator/login_page.html', {'error': error})
+        logger.warning('Невдала спроба входу в акаунт модератора.')
+    return render(request, 'moderator/login_page.html')
 
 
 def logout_moderator(request):
     request.session.pop('is_moderator', None)
+    logger.info('Модератор вийшов із системи.')
     return redirect('main_page')
 
 
 @moderator_required
 def show_moderator_main_page(request):
+    logger.info('Користувач відкрив головну сторінку входу модератора.')
     return render(request, 'moderator/moderator_main_page.html')
 
 class CarDetailView(DetailView):
@@ -91,6 +97,7 @@ class SaleDeleteView(DeleteView):
 
 @moderator_required
 def show_objects_list(request, model_name, fields, template_name, objects_name):
+    logger.info(f'Модератор переглянув список об’єктів: {model_name}.')
     all_objects = model_name.objects.all()
 
     sort_field = request.GET.get('sort', 'id')
@@ -138,6 +145,7 @@ def create_object(request, object_form, object_name, redirect_url):
         form = object_form(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+            logger.info(f'Новий об’єкт "{object_name}" успішно створено.')
             return redirect(redirect_url)
     else:
         form = object_form()
@@ -170,6 +178,7 @@ def create_sale(request):
 
 @moderator_required
 def show_reports(request):
+    logger.info('Модератор відкрив сторінку звітів.')
     report_type = request.GET.get('report_type')
     start_date = request.GET.get('start_date')
     end_date = request.GET.get('end_date')
@@ -248,7 +257,7 @@ def export_sales(request):
 
     with open('sales.json', 'w', encoding='utf-8') as file:
         json.dump(data, file, ensure_ascii=False, indent=4)
-
+        logger.info('Відбувся експорт продажів.')
     return render(request, 'moderator/export_done.html')
 
 @moderator_required
@@ -269,7 +278,7 @@ def export_cars(request):
 
     with open('cars.json', 'w', encoding='utf-8') as file:
         json.dump(data, file, ensure_ascii=False, indent=4)
-
+        logger.info('Відбувся експорт машин.')
     return render(request, 'moderator/export_done.html')
 
 @moderator_required
@@ -288,7 +297,7 @@ def export_workers(request):
     }
     with open('workers.json', 'w', encoding='utf-8') as file:
         json.dump(data, file, ensure_ascii=False, indent=4)
-
+        logger.info('Відбувся експорт працівників.')
     return render(request, 'moderator/export_done.html')
 
 @moderator_required
@@ -311,10 +320,13 @@ def import_sales_from_file(request):
                         'selling_price': sale_data['selling_price'],
                         'profit': sale_data['profit']}
                 )
+            logger.info('Відбувся імпорт продажів.')
             return render(request, 'moderator/import_done.html')
     except FileNotFoundError:
+        logger.error('Не вдалося знайти файл sales.json під час імпорту.')
         return HttpResponse('<h4>Помилка. Файл не знайдено</h4>')
     except json.JSONDecodeError:
+        logger.error('Помилка при розпізнаванні JSON у файлі sales.json.')
         return HttpResponse('<h4>Помилка. Файл не розпізнано</h4>')
 
 @moderator_required
@@ -333,10 +345,13 @@ def import_cars_from_file(request):
                         'potential_selling_price': car_data['potential_selling_price'],
                         'is_available': car_data['is_available']}
                     )
+            logger.info('Відбувся імпорт машин.')
             return render(request, 'moderator/import_done.html')
     except FileNotFoundError:
+        logger.error('Не вдалося знайти файл cars.json під час імпорту.')
         return HttpResponse('<h4>Помилка. Файл не знайдено</h4>')
     except json.JSONDecodeError:
+        logger.error('Помилка при розпізнаванні JSON у файлі cars.json.')
         return HttpResponse('<h4>Помилка. Файл не розпізнано</h4>')
 
 @moderator_required
@@ -355,8 +370,17 @@ def import_workers_from_file(request):
                             'is_active': worker_data['is_active'],
                     }
                  )
+            logger.info('Відбувся імпорт працівників.')
             return render(request, 'moderator/import_done.html')
     except FileNotFoundError:
+        logger.error('Не вдалося знайти файл workers.json під час імпорту.')
         return HttpResponse('<h4>Помилка. Файл не знайдено</h4>')
     except json.JSONDecodeError:
+        logger.error('Помилка при розпізнаванні JSON у файлі workers.json.')
         return HttpResponse('<h4>Помилка. Файл не розпізнано</h4>')
+
+
+def show_logs(request):
+    with open('showroom_moderator_logs.log', 'r', encoding='utf-8') as file:
+        logs = file.readlines()[-100:]
+        return render(request, 'moderator/moderator_logs.html', {'logs': logs})

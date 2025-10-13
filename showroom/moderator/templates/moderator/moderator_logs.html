@@ -1,0 +1,22 @@
+{% extends 'layout_m.html' %}
+{% block title %}Логи модератора{% endblock %}
+
+{% block content %}
+<h2 style="text-align:center;">📜 Логи модератора</h2>
+
+<div style="
+    background:#111; 
+    color:#0f0; 
+    font-family: monospace; 
+    padding:15px; 
+    border-radius:8px; 
+    max-height:500px; 
+    overflow-y:auto;
+">
+    {% for line in logs %}
+        <div>{{ line }}</div>
+    {% empty %}
+        <p>Немає логів.</p>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>{% block title %}Moderator Panel{% endblock %}</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'moderator/css/style_m.css' %}?v{{time}}">
+    <link rel="stylesheet" href="{% static 'moderator/css/style_m.css' %}">
 </head>
 <body>
     <header>
@@ -16,6 +16,7 @@
             <a href="{% url 'sales_list' %}">Продажі</a>
             <a href="{% url 'reports' %}">Звіти</a>
         </nav>
+        <a href="{% url 'show_logs' %}" class="log-btn">Логи</a>
         <a href="{% url 'logout_moderator' %}" class="logout-btn">Вийти</a>
     </header>
 

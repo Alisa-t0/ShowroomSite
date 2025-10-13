@@ -27,4 +27,5 @@ urlpatterns = [
     path('import_sales', views.import_sales_from_file, name='import_sales'),
     path('import_cars', views.import_cars_from_file, name='import_cars'),
     path('import_workers', views.import_workers_from_file, name='import_workers'),
+    path('logs', views.show_logs, name='show_logs'),
 ]

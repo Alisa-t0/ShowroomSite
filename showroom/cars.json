@@ -21,7 +21,7 @@
         {
             "id": 3,
             "producer_name": "Tesla",
-            "year_production": 2024,
+            "year_production": 2023,
             "model": "Model 3",
             "cost": 40000,
             "potential_selling_price": 45000,
@@ -97,6 +97,15 @@
             "model": "Focus",
             "cost": 12000,
             "potential_selling_price": 15000,
+            "is_available": false
+        },
+        {
+            "id": 14,
+            "producer_name": "Tesla",
+            "year_production": 2024,
+            "model": "Model 3",
+            "cost": 42000,
+            "potential_selling_price": 48000,
             "is_available": false
         }
     ]
